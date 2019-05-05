@@ -40,30 +40,20 @@ class Visualizer {
 
     //???WRITE THIS METHOD!!!
     //THESE ARE WRONG: They just illustrate how they could look
-    
-    for(int i = 0; i < values.length; i++) {
-      if(values[i] >= 0) {
+    float tempX = 0;
+    float width = 400/values.length;
+    for (int i = 0; i < values.length; i++) {
+      if (values[i] > 0) {
         fill(0, 255, 0);
-        rect(x, y+(100-values[i]), 400/values.length, values[i]);
-        x+=400/values.length;
-      }
-      else {
+        rect(x + tempX, y+(100-values[i]), width, values[i]);
+      } else {
         fill(255, 0, 0);
-        rect(x, y+200, 400/values.length, values[i]);
-        x+=400/values.length;
+        rect(x + tempX, y+(100-values[i]), width, values[i]);
       }
+      tempX += width;
     }
-    
-    /*
-    fill(255, 0, 0);
-    rect(x+40, y+100, 60, 50);
-    fill(0, 255, 0);
-    rect(x+120, y+50, 60, 50);
-    */
-    
-
-    //Width of the visualizer is 400!
   }
+
   void update() {
     //???WRITE THIS METHOD!!!
     for (int i = 0; i < values.length; i++) {
