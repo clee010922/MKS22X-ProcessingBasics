@@ -43,14 +43,16 @@ class Visualizer {
     float tempX = 0;
     float width = 400/values.length;
     for (int i = 0; i < values.length; i++) {
-      if (values[i] > 0) {
-        fill(0, 255, 0);
-        rect(x + tempX, y+(100-values[i]), width, values[i]);
-      } else {
+      if(values[i] < -50)
         fill(255, 0, 0);
-        rect(x + tempX, y+(100-values[i]), width, values[i]);
-      }
-      tempX += width;
+       else if(values[i] < 0)
+        fill(255, 165, 0);
+       else if(values[i] < 50)
+        fill(255, 255, 0);
+       else if (values[i] < 100)
+         fill(0, 255 ,0);
+       rect(x + tempX, y+(100-values[i]), width, values[i]);
+       tempX += width;
     }
   }
 
